@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+.player-box {
+    text-align: center;
+}
+.choice-img {
+    max-width: 100px;
+    margin-top: 20px;
+}
+h1 {
+    text-align: center;
+}
+.vs {
+    width: 100%;
+}
+.modal-body{align-items: center;}
+.modal-header img{width: 100% !important;}
+button {
+    font-size: 1.4em;
+    color: #fafafa;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #ec0000;
+    background: linear-gradient(#e1820799, #000000cc);
+    box-shadow: 3px 3px #ec0000;
+    cursor: pointer;
+    margin: 15px 0;   list-style-type: none;
+    text-decoration: none;
+    font-size: 1.4em;
+    color: #ec0000;
+    text-shadow: 1px 1px #fafafad8;
+}
+button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
