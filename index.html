@@ -1,79 +1,144 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Shifumi</title>
-</head>
-<body>
-    <h1>Shifumi</h1>
-
-    <!-- Modal pour saisir le nom et afficher les règles -->
-    <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="rulesModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="rulesModalLabel">Bienvenue à Shifumi</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link
+        rel="shortcut icon"
+        type="image/jpg"
+        href="./assets/image/pierre papier ciseaux.png"
+      />
+  
+        <title>Shifumi</title>
+    </head>
+    <body>
+        <center><h1>Shifumi</h1></center>
+        <div class="container">
+            <div class="row mt-5">
+                <!-- joueur 1 -->
+                <div class="col-md-4 player-box">
+                    <h2 id="player1-name">Joueur 1</h2>
+                    <img
+                        src="./assets/image/utilisateur.png"
+                        alt="Avatar"
+                        class="choice-img"
+                        id="player1-choice-img"
+                    />
+                    <p>Choix : <span id="player1-choice"></span></p>
                 </div>
-                <div class="modal-body">
-                    <p>Saisissez votre nom pour commencer à jouer.</p>
-                    <input type="text" id="name-input" class="form-control mb-3" placeholder="Votre nom">
-                    <p>Règles du jeu:</p>
-                    <ul>
-                        <li>Pierre bat ciseaux</li>
-                        <li>Ciseaux bat papier</li>
-                        <li>Papier bat pierre</li>
-                    </ul>
+                <!-- versus -->
+                <div class="col-md-4 player-box">
+                    <img
+                        class="vs"
+                        src="./assets/image/vs-letters-versus-png.webp"
+                        alt="Versus"
+                        id="versus-img"
+                    />
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="start-game-btn">Commencer le jeu</button>
+                <!-- joueur 2 -->
+                <div class="col-md-4 player-box">
+                    <h2 id="player2-name">Ordinateur</h2>
+                    <img
+                        src="./assets/image/utilisateur (1).png"
+                        alt="Avatar"
+                        class="choice-img"
+                        id="player2-choice-img"
+                    />
+                    <p>Choix : <span id="player2-choice"></span></p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <div id="start-game">
+                        <input type="text" id="name-input" placeholder="Entrez votre nom" />
+                        <br /><button id="start-game-btn">Commencer le jeu</button>
+                    </div>
+                    <div id="game" style="display: none">
+                        <h2 id="player1-name">Joueur 1</h2>
+                        <div id="choices">
+                            <button data-choice="pierre">
+                                <img style="width: 30%" src="./assets/image/pierre.png" alt="" />
+                                <!-- Pierre -->
+                            </button>
+                            <button data-choice="papier">
+                                <img style="width: 30%" src="./assets/image/papier.png" alt="" />
+                                <!-- Papier -->
+                            </button>
+                            <button data-choice="ciseaux">
+                                <img style="width: 30%" src="./assets/image/ciseaux.png" alt="" />
+                                <!-- Ciseaux -->
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row mt-5">
-            <!-- joueur 1 -->
-            <div class="col-md-4 player-box">
-                <h2 id="player1-name">Joueur 1</h2>
-                <img src="./assets/image/utilisateur.png" alt="Avatar" class="choice-img" id="player1-choice-img">
-                <p>Choix : <span id="player1-choice"></span></p>
-            </div>
-            <!-- versus -->
-            <div class="col-md-4 player-box">
-                <img class="vs" src="./assets/image/vs-letters-versus-png.webp" alt="Versus" id="player1-choice-img">
-            </div>
-            <!-- joueur 2 -->
-            <div class="col-md-4 player-box">
-                <h2 id="player2-name">Joueur 2</h2>
-                <img src="./assets/image/utilisateur (1).png" alt="Avatar" class="choice-img" id="player2-choice-img">
-                <p>Choix : <span id="player2-choice"></span></p>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-12 text-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rulesModal">Lancer le jeu</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de victoire -->
-    <div class="modal fade" id="victoryModal" tabindex="-1" aria-labelledby="victoryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="victoryModalLabel">Victoire !</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="victoryBody">
-                    <!-- Content will be filled dynamically -->
+        <!-- Modal pour les regles du jeu-->
+        <div
+            class="modal fade"
+            id="rulesModal"
+            tabindex="-1"
+            aria-labelledby="rulesModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <center>
+                            <h5 class="modal-title" id="rulesModalLabel">Règles du jeu</h5>
+                        </center>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenu des règles du jeu -->
+                        <p>
+                            Vous allez entrez votre prénom<br />
+                            Vous aurez trois manche pour battre l'ordinateur
+                        </p>
+                        <center>
+                            <img src="./assets/image/explication.jpg" alt="" />
+                        </center>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="./
+        <!-- Modal de la victoire-->
+        <div
+            class="modal fade"
+            id="victoryModal"
+            tabindex="-1"
+            aria-labelledby="victoryModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <center>
+                            <img
+                                class="modal-title"
+                                id="victoryModalLabel"
+                                src="./assets/image/victoire.png"
+                                alt=""
+                            />
+                        </center>
+                        <!-- <h5 class="modal-title" id="victoryModalLabel">Victoire !</h5> -->
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+                    </div>
+                    <div class="modal-body" id="victoryBody">
+                        <!-- Content will be filled dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/js/jquery-3.6.1.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
+</html>

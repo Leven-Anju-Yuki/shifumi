@@ -2,8 +2,6 @@ let player1Score = 0;
 let player2Score = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
-    $('#rulesModal').modal('show');
-
     document.getElementById("start-game-btn").addEventListener("click", startGame);
     document.querySelectorAll("#choices button").forEach(button => {
         button.addEventListener("click", function() {
@@ -52,20 +50,14 @@ function makeChoice(choice) {
     if (player1Score === 3 || player2Score === 3) {
         const winner = player1Score === 3 ? "Joueur 1" : "Joueur 2";
         const modalBody = document.getElementById("victoryBody");
-        const player1AvatarURL = "./assets/image/utilisateur.png"; // URL de l'image du joueur 1
-        const player2AvatarURL = "./assets/image/utilisateur (1).png"; // URL de l'image de l'ordinateur
-        const winnerAvatar = winner === "Joueur 1" ? player1AvatarURL : player2AvatarURL; // Utiliser l'URL de l'image du gagnant
         modalBody.innerHTML = `
-            <center>
-                <p>${winner} a remporté la victoire !</p>
-                <img src="${winnerAvatar}" alt="Avatar" class="choice-img">
-            </center>
-        `;
+          <center><p>${winner} a remporté la victoire !</p>
+            <img src="./assets/image/utilisateur.png" alt="Avatar" class="choice-img">
+       </center> `;
         $("#victoryModal").modal("show");
         player1Score = 0;
         player2Score = 0;
     }
-    
 }
 
 function reloadPage() {
