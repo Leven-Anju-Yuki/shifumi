@@ -105,10 +105,12 @@ button:active {
 /* CSS pour les appareils mobiles */
 @media only screen and (max-width: 600px) {
     /* Centrer le contenu */
+    body{max-height: 900px;}
     .container {
         margin: auto;
-        width: 100%;
-        padding: 0 10px;
+        width: 90%;
+        padding: 0 25px;
+        
     }
     #choices button {
         padding: 5px; /* Réduire le rembourrage */
