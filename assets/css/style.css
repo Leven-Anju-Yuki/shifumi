@@ -15,11 +15,19 @@ body {
     padding: 0;
 }
 
-/* Titres
-h1, h2, h3, h4, h5, h6 {
+/* Titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
-} */
-
+}
+h1 {
+    color: #ec0000;
+    text-decoration: underline 2px black solid;
+}
 /* Conteneur principal */
 .container {
     max-width: 1200px;
@@ -106,9 +114,9 @@ button:active {
         width: 50%; /* Réduire la largeur de l'image */
     }
     /* Ajuster la taille de la police */
-    h1 {
+    /* h1 {
         font-size: 1.5em;
-    }
+    } */
     .regle {
         width: 70%;
     }
@@ -127,7 +135,8 @@ button:active {
         height: 178px;
     }
     .pierrepapierciseauxbouton {
-        width: 30% !important;margin: 2px;
+        width: 30% !important;
+        margin: 2px;
     }
 
     /* Ajuster l'espace entre les éléments */
