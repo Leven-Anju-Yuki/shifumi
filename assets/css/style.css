@@ -83,3 +83,64 @@ button:active {
 #choice button {
     width: 5% !important;
 }
+.pierrepapierciseaux {
+    width: 100% !important;
+    height: 178px;
+}
+.pierrepapierciseauxbouton {
+    width: fit-content !important;
+    margin: 10px;
+}
+/* CSS pour les appareils mobiles */
+@media only screen and (max-width: 600px) {
+    /* Centrer le contenu */
+    .container {
+        margin: auto;
+        width: 100%;
+        padding: 0 10px;
+    }
+    #choices button {
+        padding: 5px; /* Réduire le rembourrage */
+    }
+    #choices button img {
+        width: 50%; /* Réduire la largeur de l'image */
+    }
+    /* Ajuster la taille de la police */
+    h1 {
+        font-size: 1.5em;
+    }
+    .regle {
+        width: 70%;
+    }
+    /* Ajuster la taille des boîtes de joueur */
+    .player-box {
+        width: 100%;
+    }
+
+    /* Ajuster la taille des images */
+    .choice-img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .pierrepapierciseaux {
+        width: 100% !important;
+        height: 178px;
+    }
+    .pierrepapierciseauxbouton {
+        width: 30% !important;margin: 2px;
+    }
+
+    /* Ajuster l'espace entre les éléments */
+    .mt-5 {
+        margin-top: 10px;
+    }
+    .vs {
+        width: 50% !important;
+    }
+    /* Ajuster la taille du bouton */
+    button {
+        font-size: 1em;
+        padding: 8px 20px;
+        margin: 10px 0;
+    }
+}
