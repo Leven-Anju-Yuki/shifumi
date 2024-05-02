@@ -50,14 +50,14 @@ function makeChoice(choice) {
     document.getElementById("player2-name").innerText = "Ordinateur" + " (" + player2Score + ")";
 
     if (player1Score === 3 || player2Score === 3) {
-        const winner = player1Score === 3 ? "Tu" : "L'ordinateur";
+        const winner = player1Score === 3 ? "Tu as" : "L'ordinateur a";
         const modalBody = document.getElementById("victoryBody");
         const player1AvatarURL = "./assets/image/utilisateur.png"; // URL de l'image du joueur 1
         const player2AvatarURL = "./assets/image/utilisateur (1).png"; // URL de l'image de l'ordinateur
         const winnerAvatar = winner === "Joueur 1" ? player1AvatarURL : player2AvatarURL; // Utiliser l'URL de l'image du gagnant
         modalBody.innerHTML = `
             <center>
-                <p>${winner} a remporté la victoire !</p>
+                <p>${winner}  remporté la victoire !</p>
                 <img src="${winnerAvatar}" alt="Avatar" class="choice-img">
             </center>
         `;
