@@ -1,3 +1,6 @@
+* {
+    border: 1px red solid;
+}
 /* Body */
 body {
     font-family: Arial, sans-serif;
@@ -132,16 +135,16 @@ button:active {
     }
     .pierrepapierciseaux {
         width: 100% !important;
-        height: 178px;
+        height: 108px;
     }
     .pierrepapierciseauxbouton {
-        width: 30% !important;
+        width: 20% !important;
         margin: 2px;
     }
 
     /* Ajuster l'espace entre les éléments */
     .mt-5 {
-        margin-top: 10px;
+        margin-top: 1px;
     }
     .vs {
         width: 50% !important;

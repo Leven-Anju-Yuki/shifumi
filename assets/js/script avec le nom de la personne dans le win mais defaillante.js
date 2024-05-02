@@ -1,5 +1,6 @@
 let player1Score = 0;
 let player2Score = 0;
+let playerName = ""; // Variable pour stocker le nom du joueur
 
 document.addEventListener("DOMContentLoaded", function() {
     $('#rulesModal').modal('show');
@@ -13,11 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function startGame() {
-    const playerName = document.getElementById("name-input").value;
+    playerName = document.getElementById("name-input").value;
     if (!playerName) {
         alert("Veuillez entrer votre nom.");
         return;
     }
+    // Mettre à jour le nom du joueur 1 avec le nom choisi par le joueur
     document.getElementById("player1-name").innerText = playerName + " (0)";
     document.getElementById("player2-name").innerText = "Ordinateur (0)";
     document.getElementById("start-game").style.display = "none";
@@ -46,18 +48,19 @@ function makeChoice(choice) {
         player2Score++;
     }
 
-    document.getElementById("player1-name").innerText = document.getElementById("name-input").value + " (" + player1Score + ")";
+    document.getElementById("player1-name").innerText = playerName + " (" + player1Score + ")";
     document.getElementById("player2-name").innerText = "Ordinateur" + " (" + player2Score + ")";
 
     if (player1Score === 3 || player2Score === 3) {
-        const winner = player1Score === 3 ? "Tu" : "L'ordinateur";
+        const winner = player1Score === 3 ? "Joueur 1" : "Joueur 2";
         const modalBody = document.getElementById("victoryBody");
         const player1AvatarURL = "./assets/image/utilisateur.png"; // URL de l'image du joueur 1
         const player2AvatarURL = "./assets/image/utilisateur (1).png"; // URL de l'image de l'ordinateur
         const winnerAvatar = winner === "Joueur 1" ? player1AvatarURL : player2AvatarURL; // Utiliser l'URL de l'image du gagnant
+        // Utilisez le nom du joueur entré pour remplir la modal de victoire
         modalBody.innerHTML = `
             <center>
-                <p>${winner} a remporté la victoire !</p>
+                <p>${winner} (${playerName}) a remporté la victoire !</p>
                 <img src="${winnerAvatar}" alt="Avatar" class="choice-img">
             </center>
         `;
@@ -65,7 +68,6 @@ function makeChoice(choice) {
         player1Score = 0;
         player2Score = 0;
     }
-    
 }
 
 function reloadPage() {
